@@ -1,0 +1,24 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+// 抽象类
+// 抽象类作为其他派生类的基类使用，不能被实例化
+// 接口和抽象类一样用来约束子类
+// 接口只能定义约束，不被定义具体实现 抽象类都可以
+class Person {
+    showName() {
+        return this.name;
+    }
+}
+class Student extends Person {
+    constructor() {
+        super(...arguments);
+        this.name = 'ma';
+        this.age = 12;
+    }
+    show() {
+        console.log('show');
+    }
+}
+let s = new Student();
+console.log(s.showName());
+s.show();
