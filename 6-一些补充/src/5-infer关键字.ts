@@ -15,3 +15,4 @@ type res22 = myType1<string[]>; // 也是string 符合
 // infer可以推断出联合类型
 type myType3<T> = T extends { a: infer U; b: infer U } ? U : T;
 type res3 = myType3<{ a: string; b: number }>; // string | number
+
