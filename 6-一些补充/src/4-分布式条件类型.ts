@@ -6,6 +6,9 @@ type res1 = myType<string | number>;
 
 // 2.从一个类型中剔除掉某些类型 Exclude
 type res2 = Exclude<string | number | boolean, boolean>; // 剔除掉boolean类型
+// 2.从一个类型中提取出某些类型 Extract
+type T0 = Extract<"a" | "b" | "c", "a" | "f">; // "a"
+type T1 = Extract<string | number | (() => void), Function>; // () => void
 
 // 3.剔除掉null和undefined
 type res3 = NonNullable<string | number | null | undefined>; // string | number

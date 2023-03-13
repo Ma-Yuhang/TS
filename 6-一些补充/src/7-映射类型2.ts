@@ -29,13 +29,16 @@ type myType4 = {
 let res4: Pick<myType4, 'name'> = {
   name: '马宇航',
 };
-// Omit 将原有类型中的属性部分映射到新类型
+// Omit 将原有类型中的属性部分映射到新类型 排除某个类型
 type myType5 = {
   name: string;
   age: number;
+  sex: boolean;
 };
+type res55 = Omit<myType5, 'name'>;
 let res5: Omit<myType5, 'name'> = {
   age: 18,
+  sex: true,
 };
 
 // OmitThisParameter 从类型中剔除this参数类型，返回一个新类型
@@ -46,4 +49,3 @@ function fn2(x: number) {}
 type myType6 = OmitThisParameter<typeof fn1>;
 // (x: number) => void
 type myType7 = OmitThisParameter<typeof fn2>;
-
