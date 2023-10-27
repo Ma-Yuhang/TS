@@ -49,7 +49,7 @@ let i3: IinterFace3 = {
 
 // 不同点
 // type 可以声明基本数据类型 联合类型 数组 对象 函数
-// interface 只可以声明对象和函数
+// interface 只可以声明对象和函数和类
 type age = number;
 type info = number | string | boolean;
 type arrayList = (string | number)[];

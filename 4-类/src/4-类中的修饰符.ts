@@ -3,11 +3,11 @@ export default {};
 // 类中的修饰符
 
 class Person {
-  public name: string; // 公共的
+  // public name: string; // 公共的
   private age: number; // 私有的 只能被其所在的类中被访问
   protected sex: string; // 受保护的 可以被自身及子类访问
-  constructor(name: string, age: number, sex: string) {
-    this.name = name;
+  constructor(public name: string, age: number, sex: string) {
+    // this.name = name;
     this.age = age;
     this.sex = sex;
   }

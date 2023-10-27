@@ -35,7 +35,7 @@ let fn11 = (): number => {
   return 1;
 };
 let fn12 = (): number | string => {
-  return 1;
+  return '1';
 };
 // fn11  =fn12
 fn12 = fn11;
