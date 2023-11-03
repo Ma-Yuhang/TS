@@ -10,3 +10,19 @@ class Fn {
 }
 Fn.age = 18;
 Fn.say();
+// 单例模式（某些场景下可能只允许创建一个实例对象）
+class User {
+    constructor() { }
+    static createUser() {
+        if (this._user) {
+            return this._user;
+        }
+        else {
+            this._user = new User();
+            return this._user;
+        }
+    }
+}
+const u1 = User.createUser();
+const u2 = User.createUser();
+console.log(u1 === u2);
