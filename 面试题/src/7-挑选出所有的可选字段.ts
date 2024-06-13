@@ -13,9 +13,10 @@ interface Person {
 // let rename1: ReName1<Person>
 
 // 变成驼峰
-// type ReName2<T> = {
-//   [K in keyof T as `get${Capitalize<string & K>}`]: T[K];
+// type ReName2<T, U extends string> = {
+//   [K in keyof T as `${U}${Capitalize<string & K>}`]: T[K];
 // }
+// type A = ReName2<Person, 'Get'>
 
 type GetOptional<T> = {
   [K in keyof T as T[K] extends Required<T>[K] ? never : K]: T[K]
