@@ -1,34 +1,42 @@
 export {}
 
-// 注意和 abstract 的区别
-// implements子句 类实现某个接口 必须重写(可以多属性或方法，不能少)
+// implements 可以实现接口和抽象类
+// 1.实现抽象类
+abstract class Person {
+  abstract name: string
+  abstract show(): void
 
-interface IPersonInfo {
-  name: string
-  age: number
-  sex?: string
-  show():void
+  // showName() {
+  //   console.log(this.name); // 报错
+  // }
 }
-interface IPersonInfo2 {
-  abc: string
-}
-class Person implements IPersonInfo,IPersonInfo2 {
-  name: string
-  age: number
-  abc: string
-  constructor(name:string, age: number, abc: string) {
-    this.name = name
-    this.age = age
-    this.abc = abc
-  }
-  show(): void {
-    console.log('ad');
+// 如果使用implements实现抽象类的话，抽象类中的方法和属性都必须是抽象的，不能有实现的方法或属性
+class Student implements Person {
+  name: string = 'ma'
+  age: number = 12
+  show() {
+    console.log('show')
   }
 }
+let s = new Student()
+s.show()
 
-interface ITest {
-  salary: string
+// 2.实现接口或类型别名
+interface IPerson {
+  name: string
+  show(): void
 }
-class Son extends Person implements ITest { // 继承父类 有了父类的属性和方法的同时必须具有salary
-  salary: string = 'a'
+// type IPerson = {
+//   name: string
+//   show(): void
+// }
+
+class IStudent implements IPerson {
+  name: string = 'ma'
+  age: number = 12
+  show() {
+    console.log('show')
+  }
 }
+let s1 = new IStudent()
+s1.show()

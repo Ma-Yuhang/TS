@@ -1,75 +1,8 @@
 export default {};
 
-// 类型别名与接口的异同点
-
-// 相同点
-// 1.都可以描述属性和方法
-type type1 = {
-  name: string;
-  age: number;
-};
-let t1: type1 = {
-  name: 'mayuhang',
-  age: 20,
-};
-
-interface IinterFace1 {
-  name: string;
-  age: number;
-}
-let i1: IinterFace1 = {
-  name: 'mayuhang',
-  age: 20,
-};
-
-// 2.都可以进行扩展
-type type2 = {
-  a: number;
-};
-// type使用&进行扩展
-type type3 = type2 & {
-  b: number;
-};
-let t3: type3 = {
-  a: 1,
-  b: 2,
-};
-
-interface IinterFace2 {
-  a: number;
-}
-// interface使用extends进行扩展
-interface IinterFace3 extends IinterFace2 {
-  b: number;
-}
-let i3: IinterFace3 = {
-  a: 1,
-  b: 2,
-};
-
-// 不同点
-// type 可以声明基本数据类型 联合类型 数组 对象 函数
-// interface 只可以声明对象和函数和类
-type age = number;
-type info = number | string | boolean;
-type arrayList = (string | number)[];
-type fn = (x: number) => number;
-let fn: fn = function (x: number): number {
-  return x;
-};
-type obj = {
-  name: string;
-  age: number;
-};
-
-interface Obj2 {
-  name: string;
-  age: number;
-}
-interface Fn1 {
-  (x: number): number;
-}
-
-let fn1: Fn1 = function (x: number): number {
-  return x;
-};
+// 类型别名与接口的异同点（简单来说）
+// 1.type可以用于定义基本类型、联合类型、元组类型、函数、类等，而interface不能用来定义基本类型、联合类型、元组类型
+// 2.type不可以重复定义，而interface能重复定义，可以类型合并
+// 3.type使用 & 扩展， interface使用 extends 扩展
+// 复杂来说的话，需从面向对象的角度来讲
+// interface主要出现在面向对象的语言中，用来抽象一个对象类型，而type没有这层含义，只是用来表示类型的一个别名
