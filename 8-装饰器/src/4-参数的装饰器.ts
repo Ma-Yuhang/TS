@@ -1,3 +1,7 @@
+// 参数1: 如果是普通方法，参数1就是类的原型对象，如果是静态方法，就是类本身
+// 参数2: 方法名
+// 参数3: 参数索引
+
 function paramsDecorator(target: any, key: string, index: number) {
   console.log(target);
   console.log(key);

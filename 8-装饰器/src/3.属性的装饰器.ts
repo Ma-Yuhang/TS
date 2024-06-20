@@ -3,13 +3,6 @@
 function nameDecorator(target: any, key: string): any {
   console.log(target);
   console.log(key);
-
-  // 设置返回值
-  // 在返回值中设置属性描述
-  // const descriptor: PropertyDescriptor = {
-  //   writable: false, // 不可修改
-  // };
-  // return descriptor;
 }
 
 class Test2 {
@@ -18,5 +11,4 @@ class Test2 {
 }
 
 let p = new Test2();
-// p.uname = 'da'
 console.log(p.uname);

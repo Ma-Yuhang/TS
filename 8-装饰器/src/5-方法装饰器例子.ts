@@ -3,9 +3,9 @@ export {};
 function catchErrorDecorator(errorMsg: string) {
   return function (target: any, key: string, descriptor: PropertyDescriptor) {
     const fn = descriptor.value;
-    descriptor.value = function () {
+    descriptor.value = function (...args: any[]) {
       try {
-        fn();
+        fn.call(this, ...args);
       } catch (error) {
         console.log(errorMsg);
       }
@@ -14,7 +14,7 @@ function catchErrorDecorator(errorMsg: string) {
 }
 
 class Test {
-  userInfo: any = [];
+  userInfo: any;
 
   @catchErrorDecorator('userInfo上不存在name属性')
   getName() {
@@ -23,7 +23,7 @@ class Test {
 
   @catchErrorDecorator('userInfo上不存在age属性')
   getAge() {
-    return this.userInfo.age;
+    return this.userInfo;
   }
 }
 let p = new Test();
